@@ -1,14 +1,9 @@
-.counter {
-  font-weight: bold;
+@import 'palette';
+
+.col{
+  border-right: 1px solid $color2;
 }
 
-.counter--green {
-  composes: counter;
-  color: rgb(25,200,25);
-}
-
-.duck {
-  display: block;
-  width: 100%;
-  margin-top: 1.5rem;
+.title{
+  color: $color3;
 }
