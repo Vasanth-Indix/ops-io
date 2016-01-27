@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import { actions as counterActions } from '../../redux/modules/counter'
+import { DataTable } from '../../components/DataTable/DataTable'
+import { NavigationPane } from '../../components/NavigationPane/NavigationPane'
 import classes from './HomeView.scss'
 
 // We define mapStateToProps where we'd normally use
@@ -20,17 +21,17 @@ export class HomeView extends React.Component {
   };
 
   render () {
-    var colClass = classes.col + " col-xs-1 col-sm-1 col-md-1 col-lg-1"
     return (
-      <div className='container-fluid text-center'>
-        <div className='row'>
-          <div className={colClass}>
-            <Link to='/'><h3 className={classes.title}>Ops IO</h3></Link>
-          </div>
+      <div>
+        <div className={'fixed ' + classes.navbar}>
+            <NavigationPane/>
         </div>
-        <div className='row'>
-          <div className={colClass}>
-          </div>
+        <div className={ classes.tablescontainer }>
+          {
+            Array(10).fill(1).map((v, k) => {
+              return <DataTable label={'SCP-' + k} data=''/>
+            })
+          }
         </div>
       </div>
     )

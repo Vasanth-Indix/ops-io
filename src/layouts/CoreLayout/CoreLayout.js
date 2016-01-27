@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 import '../../styles/core.scss'
 
 // Note: Stateless/function components *will not* hot reload!
@@ -12,9 +13,14 @@ import '../../styles/core.scss'
 // define it with a plain javascript function...
 function CoreLayout ({ children }) {
   return (
-    <div className='page-container'>
-      <div className='view-container'>
-        {children}
+    <div className='page-container container-fluid'>
+      <div className='header fixed'>
+        <Link to='/'><h3>Ops IO</h3></Link>
+      </div>
+      <div className='row'>
+        <div className='col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-11 col-md-11 col-sm-11 col-xs-11 view-container'>
+          {children}
+        </div>
       </div>
     </div>
   )
